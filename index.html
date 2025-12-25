@@ -14,7 +14,8 @@
 }
 
 body {
-  background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+  background: url("fundo.jpg") no-repeat center center fixed;
+  background-size: cover;
   color: white;
   scroll-behavior: smooth;
 }
@@ -24,7 +25,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0, 0, 0, 0.75);
   padding: 15px 40px;
   display: flex;
   justify-content: space-between;
@@ -55,6 +56,7 @@ nav a:hover {
   justify-content: center;
   text-align: center;
   padding: 20px;
+  background: rgba(0,0,0,0.5);
 }
 
 .hero h1 {
@@ -70,6 +72,7 @@ nav a:hover {
 .btn {
   display: inline-block;
   padding: 15px 40px;
+  margin: 10px;
   background: #5865F2;
   color: white;
   border-radius: 8px;
@@ -83,10 +86,19 @@ nav a:hover {
   background: #4752c4;
 }
 
+.btn.fivem {
+  background: #f25c05;
+}
+
+.btn.fivem:hover {
+  background: #d94f04;
+}
+
 /* SEÇÕES */
 section {
   padding: 80px 20px;
   text-align: center;
+  background: rgba(0, 0, 0, 0.75);
 }
 
 section h2 {
@@ -95,12 +107,25 @@ section h2 {
 }
 
 section p {
-  max-width: 800px;
-  margin: auto;
+  max-width: 900px;
+  margin: 15px auto;
   font-size: 1.1em;
-  opacity: 0.9;
+  opacity: 0.95;
+  line-height: 1.7;
 }
 
+/* LISTAS */
+ul {
+  list-style: none;
+  margin-top: 20px;
+}
+
+ul li {
+  margin: 10px 0;
+  font-size: 1.1em;
+}
+
+/* FOOTER */
 footer {
   background: #000;
   text-align: center;
@@ -120,6 +145,7 @@ footer {
     <a href="#sobre">Sobre</a>
     <a href="#regras">Regras</a>
     <a href="https://discord.gg/wh9ds4kAdP" target="_blank">Discord</a>
+    <a href="https://cfx.re/join/adm55e" target="_blank">FiveM</a>
   </div>
 </nav>
 
@@ -127,28 +153,66 @@ footer {
   <div>
     <h1>Refúgio RJ</h1>
     <p>Onde sua história começa no GTA RP</p>
-    <a class="btn" href="https://discord.gg/wh9ds4kAdP" target="_blank">
-      Entrar no Discord
-    </a>
+
+    <a class="btn" href="https://discord.gg/wh9ds4kAdP" target="_blank">Entrar no Discord</a>
+    <a class="btn fivem" href="https://cfx.re/join/adm55e" target="_blank">Entrar no FiveM</a>
   </div>
 </section>
 
 <section id="sobre">
-  <h2>Sobre a Cidade</h2>
+  <h2>🏙️ A Lenda do Refúgio RJ</h2>
+
   <p>
-    A Refúgio RJ é um servidor de GTA RP focado em realismo, diversão e respeito.
-    Aqui você constrói sua história, faz alianças e vive experiências únicas.
+    No auge do caos na metrópole, quando o barulho das sirenes e a correria do asfalto não davam trégua,
+    um grupo de moradores decidiu que era hora de buscar algo diferente.
+    Eles não queriam apenas sobreviver ao Rio de Janeiro — queriam viver sua essência,
+    sem a toxicidade das guerras sem sentido.
+  </p>
+
+  <p>
+    Diz a lenda que, seguindo a sombra do Cristo Redentor ao entardecer,
+    encontraram um vale cercado por palmeiras imperiais,
+    onde a brisa trazia a paz do litoral misturada à força da montanha.
+    Aquele lugar não era apenas uma nova vizinhança. Era um santuário.
+  </p>
+
+  <p><strong>Ali nasceu o Refúgio.</strong></p>
+
+  <p>
+    ⚓ <strong>Um Porto Seguro</strong><br>
+    O nome nasceu da promessa de que qualquer cidadão — seja um trabalhador honesto
+    ou alguém vindo de um passado difícil — encontraria ali uma verdadeira chance
+    de recomeçar do zero.
+  </p>
+
+  <p>
+    🕊️ <strong>A Proteção do Monumento</strong><br>
+    A cidade foi erguida sob o olhar do monumento que estampa sua bandeira,
+    simbolizando que todos são bem-vindos sob os braços abertos da hospitalidade carioca.
+  </p>
+
+  <p>
+    🛡️ <strong>Resistência e Paz</strong><br>
+    Enquanto o resto do estado fervia em conflitos,
+    o Refúgio se manteve firme como o lugar onde as regras eram respeitadas
+    e a convivência falava mais alto que a violência gratuita.
+  </p>
+
+  <p>
+    Hoje, a cidade reabre suas portas.<br>
+    <strong>O Refúgio RJ não é apenas um nome no mapa — é o destino de quem se cansa do comum
+    e busca uma nova vida na cidade que foi feita pensando em você.</strong>
   </p>
 </section>
 
 <section id="regras">
   <h2>Regras Básicas</h2>
-  <p>
-    ✔ Respeito entre jogadores<br>
-    ✔ Proibido meta-gaming e power-gaming<br>
-    ✔ Valorize sua vida<br>
-    ✔ Use bom senso sempre
-  </p>
+  <ul>
+    <li>✔ Respeito entre jogadores</li>
+    <li>✔ Proibido meta-gaming e power-gaming</li>
+    <li>✔ Valorize sua vida</li>
+    <li>✔ Use bom senso sempre</li>
+  </ul>
 </section>
 
 <footer>
