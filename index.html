@@ -17,7 +17,45 @@ body {
   background: url("fundo.jpg") no-repeat center center fixed;
   background-size: cover;
   color: white;
-  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* LOADING */
+#loading {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#loading h1 {
+  margin-bottom: 20px;
+  color: #00ffcc;
+}
+
+.loader {
+  width: 60%;
+  height: 8px;
+  background: #333;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.loader::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: #00ffcc;
+  animation: load 4s linear forwards;
+}
+
+@keyframes load {
+  to { width: 100%; }
 }
 
 /* MENU */
@@ -25,7 +63,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0,0,0,0.75);
   padding: 15px 40px;
   display: flex;
   justify-content: space-between;
@@ -52,25 +90,29 @@ nav a:hover {
 .hero {
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 20px;
   background: rgba(0,0,0,0.5);
 }
 
 .hero h1 {
   font-size: 3.5em;
+  animation: fadeIn 2s ease;
 }
 
 .hero p {
   margin: 20px 0;
   font-size: 1.3em;
-  opacity: 0.9;
+  animation: fadeIn 3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .btn {
-  display: inline-block;
   padding: 15px 40px;
   margin: 10px;
   background: #5865F2;
@@ -83,51 +125,49 @@ nav a:hover {
 
 .btn:hover {
   transform: scale(1.05);
-  background: #4752c4;
 }
 
 .btn.fivem {
   background: #f25c05;
 }
 
-.btn.fivem:hover {
-  background: #d94f04;
-}
-
 /* SEÇÕES */
 section {
   padding: 80px 20px;
+  background: rgba(0,0,0,0.75);
   text-align: center;
-  background: rgba(0, 0, 0, 0.75);
 }
 
 section h2 {
-  margin-bottom: 20px;
   color: #00ffcc;
+  margin-bottom: 20px;
 }
 
 section p {
   max-width: 900px;
-  margin: 15px auto;
+  margin: auto;
   font-size: 1.1em;
-  opacity: 0.95;
   line-height: 1.7;
 }
 
-/* LISTAS */
-ul {
-  list-style: none;
-  margin-top: 20px;
-}
-
-ul li {
-  margin: 10px 0;
-  font-size: 1.1em;
+/* BOTÃO MÚSICA */
+#music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #00ffcc;
+  color: black;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 999;
 }
 
 /* FOOTER */
 footer {
-  background: #000;
+  background: black;
   text-align: center;
   padding: 20px;
   font-size: 14px;
@@ -137,6 +177,19 @@ footer {
 </head>
 
 <body>
+
+<!-- LOADING -->
+<div id="loading">
+  <h1>Carregando Refúgio RJ...</h1>
+  <div class="loader"></div>
+</div>
+
+<!-- MÚSICA -->
+<audio id="bgm" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+<button id="music-btn">🎵 Música</button>
 
 <nav>
   <h2>Refúgio RJ</h2>
@@ -153,71 +206,46 @@ footer {
   <div>
     <h1>Refúgio RJ</h1>
     <p>Onde sua história começa no GTA RP</p>
-
     <a class="btn" href="https://discord.gg/wh9ds4kAdP" target="_blank">Entrar no Discord</a>
     <a class="btn fivem" href="https://cfx.re/join/adm55e" target="_blank">Entrar no FiveM</a>
   </div>
 </section>
 
 <section id="sobre">
-  <h2>🏙️ A Lenda do Refúgio RJ</h2>
-
+  <h2>A Lenda do Refúgio RJ</h2>
   <p>
-    No auge do caos na metrópole, quando o barulho das sirenes e a correria do asfalto não davam trégua,
-    um grupo de moradores decidiu que era hora de buscar algo diferente.
-    Eles não queriam apenas sobreviver ao Rio de Janeiro — queriam viver sua essência,
-    sem a toxicidade das guerras sem sentido.
-  </p>
-
-  <p>
-    Diz a lenda que, seguindo a sombra do Cristo Redentor ao entardecer,
-    encontraram um vale cercado por palmeiras imperiais,
-    onde a brisa trazia a paz do litoral misturada à força da montanha.
-    Aquele lugar não era apenas uma nova vizinhança. Era um santuário.
-  </p>
-
-  <p><strong>Ali nasceu o Refúgio.</strong></p>
-
-  <p>
-    ⚓ <strong>Um Porto Seguro</strong><br>
-    O nome nasceu da promessa de que qualquer cidadão — seja um trabalhador honesto
-    ou alguém vindo de um passado difícil — encontraria ali uma verdadeira chance
-    de recomeçar do zero.
-  </p>
-
-  <p>
-    🕊️ <strong>A Proteção do Monumento</strong><br>
-    A cidade foi erguida sob o olhar do monumento que estampa sua bandeira,
-    simbolizando que todos são bem-vindos sob os braços abertos da hospitalidade carioca.
-  </p>
-
-  <p>
-    🛡️ <strong>Resistência e Paz</strong><br>
-    Enquanto o resto do estado fervia em conflitos,
-    o Refúgio se manteve firme como o lugar onde as regras eram respeitadas
-    e a convivência falava mais alto que a violência gratuita.
-  </p>
-
-  <p>
-    Hoje, a cidade reabre suas portas.<br>
-    <strong>O Refúgio RJ não é apenas um nome no mapa — é o destino de quem se cansa do comum
-    e busca uma nova vida na cidade que foi feita pensando em você.</strong>
+    Um lugar onde histórias se cruzam, destinos se encontram
+    e a vida ganha um novo significado.
   </p>
 </section>
 
 <section id="regras">
   <h2>Regras Básicas</h2>
-  <ul>
-    <li>✔ Respeito entre jogadores</li>
-    <li>✔ Proibido meta-gaming e power-gaming</li>
-    <li>✔ Valorize sua vida</li>
-    <li>✔ Use bom senso sempre</li>
-  </ul>
+  <p>✔ Respeito • ✔ RP sério • ✔ Sem abuso • ✔ Diversão acima de tudo</p>
 </section>
 
 <footer>
   © 2025 Refúgio RJ — Todos os direitos reservados
 </footer>
+
+<script>
+setTimeout(() => {
+  document.getElementById("loading").style.display = "none";
+}, 4000);
+
+const music = document.getElementById("bgm");
+const btn = document.getElementById("music-btn");
+
+btn.onclick = () => {
+  if (music.paused) {
+    music.play();
+    btn.innerText = "⏸️ Música";
+  } else {
+    music.pause();
+    btn.innerText = "🎵 Música";
+  }
+};
+</script>
 
 </body>
 </html>
