@@ -6,235 +6,108 @@
 <title>Refúgio RJ - GTA RP</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif}
+body{
+  background:url("assets/fundo.jpg") no-repeat center center fixed;
+  background-size:cover;
+  color:white;
 }
-
-body {
-  background: url("fundo.jpg") no-repeat center center fixed;
-  background-size: cover;
-  color: white;
-  overflow-x: hidden;
+nav{
+  position:fixed;top:0;width:100%;
+  background:rgba(0,0,0,.8);
+  padding:15px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:999;
 }
-
-/* LOADING */
-#loading {
-  position: fixed;
-  inset: 0;
-  background: #000;
-  z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+nav a{color:white;margin-left:20px;text-decoration:none}
+nav a:hover{color:#00ffcc}
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:rgba(0,0,0,.5);
 }
-
-#loading h1 {
-  margin-bottom: 20px;
-  color: #00ffcc;
+.btn{
+  padding:15px 35px;
+  background:#5865F2;
+  color:white;
+  border-radius:8px;
+  text-decoration:none;
+  margin:10px;
+  display:inline-block;
 }
-
-.loader {
-  width: 60%;
-  height: 8px;
-  background: #333;
-  overflow: hidden;
-  border-radius: 10px;
+.btn.fivem{background:#f25c05}
+section{
+  padding:80px 20px;
+  text-align:center;
+  background:rgba(0,0,0,.75);
 }
-
-.loader::before {
-  content: "";
-  display: block;
-  height: 100%;
-  width: 0%;
-  background: #00ffcc;
-  animation: load 4s linear forwards;
+footer{
+  text-align:center;
+  padding:20px;
+  background:black;
 }
-
-@keyframes load {
-  to { width: 100%; }
-}
-
-/* MENU */
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.75);
-  padding: 15px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-}
-
-nav h2 {
-  color: #00ffcc;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #00ffcc;
-}
-
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: rgba(0,0,0,0.5);
-}
-
-.hero h1 {
-  font-size: 3.5em;
-  animation: fadeIn 2s ease;
-}
-
-.hero p {
-  margin: 20px 0;
-  font-size: 1.3em;
-  animation: fadeIn 3s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.btn {
-  padding: 15px 40px;
-  margin: 10px;
-  background: #5865F2;
-  color: white;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 18px;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  transform: scale(1.05);
-}
-
-.btn.fivem {
-  background: #f25c05;
-}
-
-/* SEÇÕES */
-section {
-  padding: 80px 20px;
-  background: rgba(0,0,0,0.75);
-  text-align: center;
-}
-
-section h2 {
-  color: #00ffcc;
-  margin-bottom: 20px;
-}
-
-section p {
-  max-width: 900px;
-  margin: auto;
-  font-size: 1.1em;
-  line-height: 1.7;
-}
-
-/* BOTÃO MÚSICA */
-#music-btn {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #00ffcc;
-  color: black;
-  border: none;
-  border-radius: 50px;
-  padding: 12px 20px;
-  cursor: pointer;
-  font-weight: bold;
-  z-index: 999;
-}
-
-/* FOOTER */
-footer {
-  background: black;
-  text-align: center;
-  padding: 20px;
-  font-size: 14px;
-  opacity: 0.7;
+#musicBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  padding:12px 20px;
+  border:none;
+  border-radius:50px;
+  background:#00ffcc;
+  font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<!-- LOADING -->
-<div id="loading">
-  <h1>Carregando Refúgio RJ...</h1>
-  <div class="loader"></div>
-</div>
-
-<!-- MÚSICA -->
-<audio id="bgm" loop>
-  <source src="musica.mp3" type="audio/mpeg">
+<audio id="music" loop>
+  <source src="assets/musica.mp3" type="audio/mpeg">
 </audio>
 
-<button id="music-btn">🎵 Música</button>
+<button id="musicBtn">🎵 Música</button>
 
 <nav>
   <h2>Refúgio RJ</h2>
   <div>
-    <a href="#inicio">Início</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#regras">Regras</a>
+    <a href="index.html">Início</a>
+    <a href="regras.html">Regras</a>
+    <a href="whitelist.html">Whitelist</a>
+    <a href="staff.html">Staff</a>
     <a href="https://discord.gg/wh9ds4kAdP" target="_blank">Discord</a>
     <a href="https://cfx.re/join/adm55e" target="_blank">FiveM</a>
   </div>
 </nav>
 
-<section class="hero" id="inicio">
+<section class="hero">
   <div>
     <h1>Refúgio RJ</h1>
     <p>Onde sua história começa no GTA RP</p>
-    <a class="btn" href="https://discord.gg/wh9ds4kAdP" target="_blank">Entrar no Discord</a>
-    <a class="btn fivem" href="https://cfx.re/join/adm55e" target="_blank">Entrar no FiveM</a>
+    <a class="btn" href="https://discord.gg/wh9ds4kAdP">Entrar no Discord</a>
+    <a class="btn fivem" href="https://cfx.re/join/adm55e">Entrar no FiveM</a>
   </div>
 </section>
 
-<section id="sobre">
-  <h2>A Lenda do Refúgio RJ</h2>
+<section>
+  <h2>A Lenda do Refúgio</h2>
   <p>
     Um lugar onde histórias se cruzam, destinos se encontram
-    e a vida ganha um novo significado.
+    e a cidade ganha vida novamente.
   </p>
 </section>
 
-<section id="regras">
-  <h2>Regras Básicas</h2>
-  <p>✔ Respeito • ✔ RP sério • ✔ Sem abuso • ✔ Diversão acima de tudo</p>
-</section>
-
 <footer>
-  © 2025 Refúgio RJ — Todos os direitos reservados
+  © 2025 Refúgio RJ
 </footer>
 
 <script>
-setTimeout(() => {
-  document.getElementById("loading").style.display = "none";
-}, 4000);
-
-const music = document.getElementById("bgm");
-const btn = document.getElementById("music-btn");
+const music = document.getElementById("music");
+const btn = document.getElementById("musicBtn");
 
 btn.onclick = () => {
   if (music.paused) {
